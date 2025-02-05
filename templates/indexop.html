@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+
+
+{% block title %} Home {% endblock %}
+
+
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col md-12">
+            <div class="jumbotron p-3">
+
+
+                <a type="button" class="btn btn-success float-right" onclick="href='insert'" >Add New Data</a>
+
+                {% with messages = get_flashed_messages() %}
+
+                {% if messages %}
+
+                {% for message in messages %}
+
+                <div class="alert alert-success alert-dissmissable" role="alert">
+
+                    <button class="close" type="button" data-dismiss="alert" area-label="close">
+
+                        <span area-hidden="true">X</span>
+
+                    </button>
+
+
+
+                {{ message }}
+
+                </div>
+
+                {% endfor %}
+
+                {% endif %}
+                {% endwith %}
+
+                <table class="table tabel-hover table-dark">
+
+                    <tr>
+                        <th>ID</th>
+                        <th>date</th>
+                        <th>time</th>
+                        <th>call_max</th>
+                        <th>put_max</th>
+                        <th>result</th>
+
+
+                    </tr>
+                    {% for row in nifty %}
+
+                    <tr>
+                        <td>{{row.id}}</td>
+                        <td>{{row.date}}</td>
+                        <td>{{row.time}}</td>
+                        <td>{{row.call_max}}</td>
+                        <td>{{row.put_max}}</td>
+                        <td>{{row.result}}</td>
+
+                    {% endfor %}
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
