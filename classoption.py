@@ -24,7 +24,7 @@ class OptionChainData:
 }
 
         self.session = requests.Session()
-        request = self.session.get(self.url_oc, headers=self.headers, timeout=15)
+        request = self.session.get(self.url_oc, headers=self.headers, timeout=100)
         self.cookies = dict(request.cookies)
         # Set cookies
         self.session.cookies.update({'cookie_name': 'cookie_value'})
